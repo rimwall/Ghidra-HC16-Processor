@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<processor_spec>
+  <programcounter register="PKPC"/>
+
+  <default_symbols> <!-- names not updated, no functionality -->
+	<symbol name="RESET_initial_ZK_SK_PK" address="00000" entry="true" type="code_ptr"/>
+	<symbol name="RESET_initial_PC" address="00002" entry="true" type="code_ptr"/>
+	<symbol name="RESET_initial_SP" address="00004" entry="true" type="code_ptr"/>
+	<symbol name="RESET_initial_IZ" address="00006" entry="true" type="code_ptr"/>
+	<symbol name="BREAKPOINT" address="00008" entry="true" type="code_ptr"/>
+	<symbol name="BUS_ERROR" address="0000A" entry="true" type="code_ptr"/>
+	<symbol name="SOFTWARE_INTERRUPT" address="0000C" entry="true" type="code_ptr"/>
+	<symbol name="ILLEGAL_INSTRUCTION" address="0000E" entry="true" type="code_ptr"/>
+	<symbol name="DIVISION_BY_ZERO" address="00010" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00012" address="00012" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00014" address="00014" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00016" address="00016" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00018" address="00018" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0001A" address="0001A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0001C" address="0001C" entry="true" type="code_ptr"/>
+	<symbol name="UNITIALISED_INTERRUPT" address="0001E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00020" address="00020" entry="true" type="code_ptr"/>
+	<symbol name="LEVEL_1_INTERRUPT" address="00022" entry="true" type="code_ptr"/>
+	<symbol name="LEVEL_2_INTERRUPT" address="00024" entry="true" type="code_ptr"/>
+	<symbol name="LEVEL_3_INTERRUPT" address="00026" entry="true" type="code_ptr"/>
+	<symbol name="LEVEL_4_INTERRUPT" address="00028" entry="true" type="code_ptr"/>
+	<symbol name="LEVEL_5_INTERRUPT" address="0002A" entry="true" type="code_ptr"/>
+	<symbol name="LEVEL_6_INTERRUPT" address="0002C" entry="true" type="code_ptr"/>
+	<symbol name="LEVEL_7_INTERRUPT" address="0002E" entry="true" type="code_ptr"/>
+	<symbol name="SPURIOUS_INTERRUPT" address="00030" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00032" address="00032" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00034" address="00034" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00036" address="00036" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00038" address="00038" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0003A" address="0003A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0003C" address="0003C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0003E" address="0003E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00040" address="00040" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00042" address="00042" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00044" address="00044" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00046" address="00046" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00048" address="00048" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0004A" address="0004A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0004C" address="0004C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0004E" address="0004E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00050" address="00050" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00052" address="00052" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00054" address="00054" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00056" address="00056" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00058" address="00058" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0005A" address="0005A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0005C" address="0005C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0005E" address="0005E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00060" address="00060" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00062" address="00062" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00064" address="00064" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00066" address="00066" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00068" address="00068" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0006A" address="0006A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0006C" address="0006C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0006E" address="0006E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00070" address="00070" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00072" address="00072" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00074" address="00074" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00076" address="00076" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00078" address="00078" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0007A" address="0007A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0007C" address="0007C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0007E" address="0007E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00080" address="00080" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00082" address="00082" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00084" address="00084" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00086" address="00086" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00088" address="00088" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0008A" address="0008A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0008C" address="0008C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0008E" address="0008E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00090" address="00090" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00092" address="00092" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00094" address="00094" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00096" address="00096" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00098" address="00098" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0009A" address="0009A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0009C" address="0009C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0009E" address="0009E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000A0" address="000A0" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000A2" address="000A2" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000A4" address="000A4" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000A6" address="000A6" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000A8" address="000A8" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000AA" address="000AA" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000AC" address="000AC" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000AE" address="000AE" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000B0" address="000B0" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000B2" address="000B2" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000B4" address="000B4" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000B6" address="000B6" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000B8" address="000B8" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000BA" address="000BA" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000BC" address="000BC" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000BE" address="000BE" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000C0" address="000C0" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000C2" address="000C2" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000C4" address="000C4" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000C6" address="000C6" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000C8" address="000C8" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000CA" address="000CA" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000CC" address="000CC" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000CE" address="000CE" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000D0" address="000D0" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000D2" address="000D2" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000D4" address="000D4" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000D6" address="000D6" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000D8" address="000D8" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000DA" address="000DA" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000DC" address="000DC" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000DE" address="000DE" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000E0" address="000E0" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000E2" address="000E2" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000E4" address="000E4" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000E6" address="000E6" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000E8" address="000E8" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000EA" address="000EA" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000EC" address="000EC" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000EE" address="000EE" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000F0" address="000F0" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000F2" address="000F2" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000F4" address="000F4" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000F6" address="000F6" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000F8" address="000F8" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000FA" address="000FA" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000FC" address="000FC" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_000FE" address="000FE" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00100" address="00100" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00102" address="00102" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00104" address="00104" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00106" address="00106" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00108" address="00108" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0010A" address="0010A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0010C" address="0010C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0010E" address="0010E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00110" address="00110" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00112" address="00112" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00114" address="00114" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00116" address="00116" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00118" address="00118" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0011A" address="0011A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0011C" address="0011C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0011E" address="0011E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00120" address="00120" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00122" address="00122" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00124" address="00124" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00126" address="00126" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00128" address="00128" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0012A" address="0012A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0012C" address="0012C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0012E" address="0012E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00130" address="00130" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00132" address="00132" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00134" address="00134" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00136" address="00136" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00138" address="00138" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0013A" address="0013A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0013C" address="0013C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0013E" address="0013E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00140" address="00140" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00142" address="00142" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00144" address="00144" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00146" address="00146" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00148" address="00148" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0014A" address="0014A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0014C" address="0014C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0014E" address="0014E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00150" address="00150" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00152" address="00152" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00154" address="00154" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00156" address="00156" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00158" address="00158" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0015A" address="0015A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0015C" address="0015C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0015E" address="0015E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00160" address="00160" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00162" address="00162" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00164" address="00164" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00166" address="00166" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00168" address="00168" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0016A" address="0016A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0016C" address="0016C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0016E" address="0016E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00170" address="00170" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00172" address="00172" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00174" address="00174" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00176" address="00176" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00178" address="00178" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0017A" address="0017A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0017C" address="0017C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0017E" address="0017E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00180" address="00180" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00182" address="00182" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00184" address="00184" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00186" address="00186" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00188" address="00188" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0018A" address="0018A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0018C" address="0018C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0018E" address="0018E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00190" address="00190" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00192" address="00192" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00194" address="00194" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00196" address="00196" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_00198" address="00198" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0019A" address="0019A" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0019C" address="0019C" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_0019E" address="0019E" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001A0" address="001A0" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001A2" address="001A2" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001A4" address="001A4" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001A6" address="001A6" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001A8" address="001A8" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001AA" address="001AA" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001AC" address="001AC" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001AE" address="001AE" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001B0" address="001B0" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001B2" address="001B2" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001B4" address="001B4" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001B6" address="001B6" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001B8" address="001B8" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001BA" address="001BA" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001BC" address="001BC" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001BE" address="001BE" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001C0" address="001C0" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001C2" address="001C2" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001C4" address="001C4" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001C6" address="001C6" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001C8" address="001C8" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001CA" address="001CA" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001CC" address="001CC" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001CE" address="001CE" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001D0" address="001D0" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001D2" address="001D2" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001D4" address="001D4" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001D6" address="001D6" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001D8" address="001D8" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001DA" address="001DA" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001DC" address="001DC" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001DE" address="001DE" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001E0" address="001E0" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001E2" address="001E2" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001E4" address="001E4" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001E6" address="001E6" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001E8" address="001E8" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001EA" address="001EA" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001EC" address="001EC" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001EE" address="001EE" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001F0" address="001F0" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001F2" address="001F2" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001F4" address="001F4" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001F6" address="001F6" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001F8" address="001F8" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001FA" address="001FA" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001FC" address="001FC" entry="true" type="code_ptr"/>
+	<symbol name="VECTOR_001FE" address="001FE" entry="true" type="code_ptr"/>
+	
+
+    <symbol name="SCIMCR" address="0FFA00"/>
+    <symbol name="SCIMTR" address="0FFA02"/>
+    <symbol name="SYNCR" address="0FFA04"/>
+    <symbol name="RSR" address="0FFA07"/>
+    <symbol name="SCIMTRE" address="0FFA08"/>
+    <symbol name="PORTA" address="0FFA0A"/> <symbol name="PORTB" address="0FFA0B"/>
+    <symbol name="PORTG" address="0FFA0C"/> <symbol name="PORTH" address="0FFA0D"/>
+    <symbol name="DDRG" address="0FFA0E"/> <symbol name="DDRH" address="0FFA0F"/>
+    <symbol name="PORTE0" address="0FFA11"/>
+    <symbol name="PORTE1" address="0FFA13"/>
+    <symbol name="DDRAB" address="0FFA14"/> <symbol name="DDRE" address="0FFA15"/>
+    <symbol name="PEPAR" address="0FFA17"/>
+    <symbol name="PORTF0" address="0FFA19"/>
+    <symbol name="PORTF1" address="0FFA1B"/>
+    <symbol name="DDRF" address="0FFA1D"/>
+    <symbol name="PFPAR" address="0FFA1F"/>
+    <symbol name="SYPCR" address="0FFA21"/>
+    <symbol name="PICR" address="0FFA22"/>
+    <symbol name="PITR" address="0FFA24"/>
+    <symbol name="SWSR" address="0FFA27"/>
+    <symbol name="PORTFE" address="0FFA29"/>
+    <symbol name="PFIVR" address="0FFA2B"/>
+    <symbol name="PFLVR" address="0FFA2D"/>
+
+    <symbol name="TSTMSRA" address="0FFA30"/>
+    <symbol name="TSTMSRB" address="0FFA32"/>
+    <symbol name="TSTSC" address="0FFA34"/>
+    <symbol name="TSTRC" address="0FFA36"/>
+    <symbol name="CREG" address="0FFA38"/>
+    <symbol name="DREG" address="0FFA3A"/>
+
+
+    <symbol name="PORTC" address="0FFA41"/>
+
+    <symbol name="CSPAR0" address="0FFA44"/>
+    <symbol name="CSPAR1" address="0FFA46"/>
+    <symbol name="CSBARBT" address="0FFA48"/>
+    <symbol name="CSORBT" address="0FFA4A"/>
+    <symbol name="CSBAR0" address="0FFA4C"/>
+    <symbol name="CSOR0" address="0FFA4E"/>
+
+
+
+
+    <symbol name="CSBAR3" address="0FFA58"/>
+    <symbol name="CSOR3" address="0FFA5A"/>
+
+
+    <symbol name="CSBAR5" address="0FFA60"/>
+    <symbol name="CSOR5" address="0FFA62"/>
+    <symbol name="CSBAR6" address="0FFA64"/>
+    <symbol name="CSOR6" address="0FFA66"/>
+    <symbol name="CSBAR7" address="0FFA68"/>
+    <symbol name="CSOR7" address="0FFA6A"/>
+    <symbol name="CSBAR8" address="0FFA6C"/>
+    <symbol name="CSOR8" address="0FFA6E"/>
+    <symbol name="CSBAR9" address="0FFA70"/>
+    <symbol name="CSOR9" address="0FFA72"/>
+    <symbol name="CSBAR10" address="0FFA74"/>
+    <symbol name="CSOR10" address="0FFA76"/>
+
+
+
+
+    <symbol name="RAMMCR" address="0FFB00"/>
+    <symbol name="RAMTST" address="0FFB02"/>
+    <symbol name="RAMBAH" address="0FFB04"/>
+    <symbol name="RAMBAL" address="0FFB06"/>
+    <symbol name="ADCMCR" address="0FF700"/>
+    <symbol name="ADCTEST" address="0FF702"/>
+
+    <symbol name="PORTADA" address="0FF707"/>
+
+    <symbol name="ADCTL0" address="0FF70A"/>
+    <symbol name="ADCTL1" address="0FF70C"/>
+    <symbol name="ADCSTAT" address="0FF70E"/>
+    <symbol name="RJURR0" address="0FF710"/>
+    <symbol name="RJURR1" address="0FF712"/>
+    <symbol name="RJURR2" address="0FF714"/>
+    <symbol name="RJURR3" address="0FF716"/>
+    <symbol name="RJURR4" address="0FF718"/>
+    <symbol name="RJURR5" address="0FF71A"/>
+    <symbol name="RJURR6" address="0FF71C"/>
+    <symbol name="RJURR7" address="0FF71E"/>
+    <symbol name="LJSRR0" address="0FF720"/>
+    <symbol name="LJSRR1" address="0FF722"/>
+    <symbol name="LJSRR2" address="0FF724"/>
+    <symbol name="LJSRR3" address="0FF726"/>
+    <symbol name="LJSRR4" address="0FF728"/>
+    <symbol name="LJSRR5" address="0FF72A"/>
+    <symbol name="LJSRR6" address="0FF72C"/>
+    <symbol name="LJSRR7" address="0FF72E"/>
+    <symbol name="LJURR0" address="0FF730"/>
+    <symbol name="LJURR1" address="0FF732"/>
+    <symbol name="LJURR2" address="0FF734"/>
+    <symbol name="LJURR3" address="0FF736"/>
+    <symbol name="LJURR4" address="0FF738"/>
+    <symbol name="LJURR5" address="0FF73A"/>
+    <symbol name="LJURR6" address="0FF73C"/>
+    <symbol name="LJURR7" address="0FF73E"/>
+    <symbol name="QSMCR" address="0FFC00"/>
+    <symbol name="QTEST" address="0FFC02"/>
+    <symbol name="QILR" address="0FFC04"/> <symbol name="QIVR" address="0FFC05"/>
+
+    <symbol name="SCCR0" address="0FFC08"/>
+    <symbol name="SCCR1" address="0FFC0A"/>
+    <symbol name="SCSR" address="0FFC0C"/>
+    <symbol name="SCDR" address="0FFC0E"/>
+
+
+    <symbol name="PORTQS" address="0FFC15"/>
+    <symbol name="PQSPAR" address="0FFC16"/> <symbol name="DDRQS" address="0FFC17"/>
+    <symbol name="SPCR0" address="0FFC18"/>
+    <symbol name="SPCR1" address="0FFC1A"/>
+    <symbol name="SPCR2" address="0FFC1C"/>
+    <symbol name="SPCR3" address="0FFC1E"/> <symbol name="SPSR" address="0FFC1F"/>
+    <symbol name="RR[0]" address="0FFD00"/>
+    <symbol name="RR[1]" address="0FFD02"/>
+    <symbol name="RR[2]" address="0FFD04"/>
+    <symbol name="RR[3]" address="0FFD06"/>
+    <symbol name="RR[4]" address="0FFD08"/>
+    <symbol name="RR[5]" address="0FFD0A"/>
+    <symbol name="RR[6]" address="0FFD0C"/>
+    <symbol name="RR[7]" address="0FFD0E"/>
+    <symbol name="RR[8]" address="0FFD10"/>
+    <symbol name="RR[9]" address="0FFD12"/>
+    <symbol name="RR[A]" address="0FFD14"/>
+    <symbol name="RR[B]" address="0FFD16"/>
+    <symbol name="RR[C]" address="0FFD18"/>
+    <symbol name="RR[D]" address="0FFD1A"/>
+    <symbol name="RR[E]" address="0FFD1C"/>
+    <symbol name="RR[F]" address="0FFD1E"/>
+    <symbol name="TD[0]" address="0FFD20"/>
+    <symbol name="TD[1]" address="0FFD22"/>
+    <symbol name="TD[2]" address="0FFD24"/>
+    <symbol name="TD[3]" address="0FFD26"/>
+    <symbol name="TD[4]" address="0FFD28"/>
+    <symbol name="TD[5]" address="0FFD2A"/>
+    <symbol name="TD[6]" address="0FFD2C"/>
+    <symbol name="TD[7]" address="0FFD2E"/>
+    <symbol name="TD[8]" address="0FFD30"/>
+    <symbol name="TD[9]" address="0FFD32"/>
+    <symbol name="TD[A]" address="0FFD34"/>
+    <symbol name="TD[B]" address="0FFD36"/>
+    <symbol name="TD[C]" address="0FFD38"/>
+    <symbol name="TD[D]" address="0FFD3A"/>
+    <symbol name="TD[E]" address="0FFD3C"/>
+    <symbol name="TD[F]" address="0FFD3E"/>
+    <symbol name="CR[0]" address="0FFD40"/>
+    <symbol name="CR[1]" address="0FFD42"/>
+    <symbol name="CR[2]" address="0FFD44"/>
+    <symbol name="CR[3]" address="0FFD46"/>
+    <symbol name="CR[4]" address="0FFD48"/>
+    <symbol name="CR[5]" address="0FFD4A"/>
+    <symbol name="CR[6]" address="0FFD4C"/>
+    <symbol name="CR[7]" address="0FFD4E"/>
+    <symbol name="CR[8]" address="0FFD50"/>
+    <symbol name="CR[9]" address="0FFD52"/>
+    <symbol name="CR[A]" address="0FFD54"/>
+    <symbol name="CR[B]" address="0FFD56"/>
+    <symbol name="CR[C]" address="0FFD58"/>
+    <symbol name="CR[D]" address="0FFD5A"/>
+    <symbol name="CR[E]" address="0FFD5C"/>
+    <symbol name="CR[F]" address="0FFD5E"/>
+    <symbol name="MMCR" address="0FFC00"/>
+    <symbol name="MTEST" address="0FFC02"/>
+    <symbol name="ILSCI" address="0FFC04"/>
+    <symbol name="ILSPI" address="0FFC06"/>
+    <symbol name="MPAR" address="0FFC09"/>
+    <symbol name="MDDR" address="0FFC0B"/>
+    <symbol name="PORTMC" address="0FFC0D"/>
+    <symbol name="PORTMCP" address="0FFC0F"/>
+    <symbol name="SCCR0A" address="0FFC18"/>
+    <symbol name="SCCR1A" address="0FFC1A"/>
+    <symbol name="SCSRA" address="0FFC1C"/>
+    <symbol name="SCDRA" address="0FFC1E"/>
+    <symbol name="SCCR0B" address="0FFC28"/>
+    <symbol name="SCCR1B" address="0FFC2A"/>
+    <symbol name="SCSRB" address="0FFC2C"/>
+    <symbol name="SCDRB" address="0FFC2E"/>
+    <symbol name="SPCR" address="0FFC38"/>
+
+    <symbol name="SPSR" address="0FFC3C"/>
+    <symbol name="SPDR" address="0FFC3E"/>
+    <symbol name="GPTMCR" address="0FF900"/>
+    <symbol name="GPTMTR" address="0FF902"/>
+    <symbol name="ICR" address="0FF904"/>
+    <symbol name="DDRGP" address="0FFE06"/> <symbol name="PORTGP" address="0FFE07"/>
+    <symbol name="OC1M" address="0FF908"/> <symbol name="OC1D" address="0FF909"/>
+    <symbol name="TCNT" address="0FF90A"/>
+    <symbol name="PACTL" address="0FF90C"/> <symbol name="PACNT" address="0FF90D"/>
+    <symbol name="TIC1" address="0FF90E"/>
+    <symbol name="TIC2" address="0FF910"/>
+    <symbol name="TIC3" address="0FF912"/>
+    <symbol name="TOC1" address="0FF914"/>
+    <symbol name="TOC2" address="0FF916"/>
+    <symbol name="TOC3" address="0FF918"/>
+    <symbol name="TOC4" address="0FF91A"/>
+    <symbol name="TI4/O5" address="0FF91C"/>
+    <symbol name="TCTL1" address="0FF91E"/>
+    <symbol name="TMSK1" address="0FF920"/>
+    <symbol name="TFLG1" address="0FF922"/>
+    <symbol name="CFORC" address="0FF924"/>
+    <symbol name="PWMA" address="0FF926"/>
+    <symbol name="PWMCNT" address="0FF928"/>
+    <symbol name="PWMBUFA" address="0FF92A"/>
+    <symbol name="PRESCL" address="0FF92C"/>
+    <symbol name="TPUMCR" address="0FFE00"/>
+    <symbol name="TCR" address="0FFE02"/>
+    <symbol name="DSCR" address="0FFE04"/>
+    <symbol name="DSSR" address="0FFE06"/>
+    <symbol name="TICR" address="0FFE08"/>
+    <symbol name="CIER" address="0FFE0A"/>
+    <symbol name="CFSR0" address="0FFE0C"/>
+    <symbol name="CFSR1" address="0FFE0E"/>
+    <symbol name="CFSR2" address="0FFE10"/>
+    <symbol name="CFSR3" address="0FFE12"/>
+    <symbol name="HSQR0" address="0FFE14"/>
+    <symbol name="HSQR1" address="0FFE16"/>
+    <symbol name="HSRR0" address="0FFE18"/>
+    <symbol name="HSRR1" address="0FFE1A"/>
+    <symbol name="CPR0" address="0FFE1C"/>
+    <symbol name="CPR1" address="0FFE1E"/>
+    <symbol name="CISR" address="0FFE20"/>
+    <symbol name="LR" address="0FFE22"/>
+    <symbol name="SGLR" address="0FFE24"/>
+    <symbol name="DCNR" address="0FFE26"/>
+    <symbol name="TPUMCR2" address="0FFE28"/>
+    <symbol name="TFMCR" address="0FF860"/>
+    <symbol name="TFTST" address="0FF862"/>
+    <symbol name="TFBAH" address="0FF864"/>
+    <symbol name="TFBAL" address="0FF866"/>
+    <symbol name="TFCTL" address="0FF868"/>
+
+
+
+    <symbol name="TFBS0" address="0FF870"/>
+    <symbol name="TFBS1" address="0FF872"/>
+    <symbol name="TFBS2" address="0FF874"/>
+    <symbol name="TFBS3" address="0FF876"/>
+  </default_symbols>
+	<default_memory_blocks>
+		<memory_block name="RAM" start_address="0x20000" length="0x8000" mode="rw"/>
+		<memory_block name="IMB" start_address="0xF0000" length="0x10000" mode="rw"/>
+	</default_memory_blocks>
+
+
+</processor_spec>
