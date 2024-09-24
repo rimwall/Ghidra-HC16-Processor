@@ -72,6 +72,14 @@ define token opbyte8 (8)
 
 define token data8 (8)
 	imm8  = (0,7)
+	imm8_0 = (0,0)
+	imm8_1 = (1,1)
+	imm8_2 = (2,2)
+	imm8_3 = (3,3)
+	imm8_4 = (4,4)
+	imm8_5 = (5,5)
+	imm8_6 = (6,6)
+	imm8_7 = (7,7)
 	simm8 = (0,7) signed
 	rel   = (0,7) signed
 ;
@@ -287,6 +295,141 @@ macro Push2(operand) {
 macro setCCR(operand) {
 	# when CCR is the destination, cannot set the X bit unless it is already set in CCR
 	CCR = operand & (CCR | 0b10111111);
+}
+
+################################################################
+# Conditional Push / Pull constructors
+################################################################
+PulD: is imm8_6=1 {
+	Pull2(D);
+}
+
+PulD: is imm8_6=0 {
+}
+
+PulE: is imm8_5=1 & PulD {
+	Pull2(E);
+	build PulD;
+}
+
+PulE: is imm8_5=0 & PulD {
+	build PulD;
+}
+
+PulIX: is imm8_4=1 & PulE {
+	Pull2(IX);
+	build PulE;
+}
+
+PulIX: is imm8_4=0 & PulE {
+	build PulE;
+}
+
+PulIY: is imm8_3=1 & PulIX {
+	Pull2(IY);
+	build PulIX;
+}
+
+PulIY: is imm8_3=0 & PulIX {
+	build PulIX;
+}
+
+PulIZ: is imm8_2=1 & PulIY {
+	Pull2(IZ);
+	build PulIY;
+}
+
+PulIZ: is imm8_2=0 & PulIY {
+	build PulIY;
+}
+
+PulKs: is imm8_1=1 & PulIZ {
+	local temp:2;
+	Pull2(temp);
+	EK = zext(temp[12,4]);
+	XK = zext(temp[8,4]);
+	YK = zext(temp[4,4]);
+	ZK = zext(temp[0,4]);	
+	build PulIZ;
+}
+
+PulKs: is imm8_1=0 & PulIZ {
+	build PulIZ;
+}
+
+PulCCR: is imm8_0=1 & PulKs {
+	Pull2(CCR);
+	build PulKs;
+}
+
+PulCCR: is imm8_0=0 & PulKs {
+	build PulKs;
+}
+
+PshCCR: is imm8_6=1 {
+	Push2(CCR);
+}
+
+PshCCR: is imm8_6=0 {
+}
+
+PshKs: is imm8_5=1 & PshCCR {
+	local tempEK:2 = zext(EK[0,4]) << 12;
+	local tempXK:2 = zext(XK[0,4]) << 8;
+	local tempYK:2 = zext(YK[0,4]) << 4;
+	local tempZK:2 = zext(ZK[0,4]);
+	local temp:2 = tempEK + tempXK + tempYK + tempZK;
+	Push2(temp);
+	build PshCCR;
+}
+
+PshKs: is imm8_5=0 & PshCCR {
+	build PshCCR;
+}
+
+PshIZ: is imm8_4=1 & PshKs {
+	Push2(IZ);
+	build PshKs;
+}
+
+PshIZ: is imm8_4=0 & PshKs {
+	build PshKs;
+}
+
+PshIY: is imm8_3=1 & PshIZ {
+	Push2(IY);
+	build PshIZ;
+}
+
+PshIY: is imm8_3=0 & PshIZ {
+	build PshIZ;
+}
+
+PshIX: is imm8_2=1 & PshIY {
+	Push2(IX);
+	build PshIY;
+}
+
+PshIX: is imm8_2=0 & PshIY {
+	build PshIY;
+}
+
+PshE: is imm8_1=1 & PshIX {
+	Push2(E);
+	build PshIX;
+}
+
+PshE: is imm8_1=0 & PshIX {
+	build PshIX;
+}
+
+PshD: is imm8_0=1 & PshE {
+	Push2(D);
+	build PshE;
+}
+
+PshD: is imm8_0=0 & PshE {
+	build PshE;
 }
 
 ################################################################
@@ -5429,34 +5572,38 @@ SkipNext2Instr: dest  is epsilon [ dest = inst_next + 2; ] { export *[RAM]:1 des
 }
 
 # PSHM IMM8 ii
-:PSHM iopr8i						is Prebyte=0x0 & op8=0x34; iopr8i {
-	local tempEK:2 = zext(EK[0,4]) << 12;
-	local tempXK:2 = zext(XK[0,4]) << 8;
-	local tempYK:2 = zext(YK[0,4]) << 4;
-	local tempZK:2 = zext(ZK[0,4]);
-	local temp:2 = tempEK + tempXK + tempYK + tempZK;
-	if (iopr8i[0,1] == 0) goto <next1>;
-		Push2(D);
-	<next1>
-	if (iopr8i[1,1] == 0) goto <next2>;
-		Push2(E);
-	<next2>
-	if (iopr8i[2,1] == 0) goto <next3>;
-		Push2(IX);
-	<next3>
-	if (iopr8i[3,1] == 0) goto <next4>;
-		Push2(IY);
-	<next4>
-	if (iopr8i[4,1] == 0) goto <next5>;
-		Push2(IZ);
-	<next5>
-	if (iopr8i[5,1] == 0) goto <next6>;
-		Push2(temp);
-	<next6>
-	if (iopr8i[6,1] == 0) goto <next7>;
-		Push2(CCR);
-	<next7>
+:PSHM iopr8i						is Prebyte=0x0 & op8=0x34; iopr8i & PshD {
+	build PshD;
 }
+
+#:PSHM iopr8i						is Prebyte=0x0 & op8=0x34; iopr8i {
+#	local tempEK:2 = zext(EK[0,4]) << 12;
+#	local tempXK:2 = zext(XK[0,4]) << 8;
+#	local tempYK:2 = zext(YK[0,4]) << 4;
+#	local tempZK:2 = zext(ZK[0,4]);
+#	local temp:2 = tempEK + tempXK + tempYK + tempZK;
+#	if (iopr8i[0,1] == 0) goto <next1>;
+#		Push2(D);
+#	<next1>
+#	if (iopr8i[1,1] == 0) goto <next2>;
+#		Push2(E);
+#	<next2>
+#	if (iopr8i[2,1] == 0) goto <next3>;
+#		Push2(IX);
+#	<next3>
+#	if (iopr8i[3,1] == 0) goto <next4>;
+#		Push2(IY);
+#	<next4>
+#	if (iopr8i[4,1] == 0) goto <next5>;
+#		Push2(IZ);
+#	<next5>
+#	if (iopr8i[5,1] == 0) goto <next6>;
+#		Push2(temp);
+#	<next6>
+#	if (iopr8i[6,1] == 0) goto <next7>;
+#		Push2(CCR);
+#	<next7>
+#}
 
 # PSHMAC
 :PSHMAC						is Prebyte=0x27 & op8=0xB8 {
@@ -5482,34 +5629,38 @@ SkipNext2Instr: dest  is epsilon [ dest = inst_next + 2; ] { export *[RAM]:1 des
 }
 	
 # PULM IMM8 ii
-:PULM iopr8i				is Prebyte=0x0 & op8=0x35; iopr8i {
-	if (iopr8i[0,1] == 0) goto <next1>;
-		Pull2(CCR);
-	<next1>
-	if (iopr8i[1,1] == 0) goto <next2>;
-		local temp:2;
-		Pull2(temp);
-		EK = zext(temp[12,4]);
-		XK = zext(temp[8,4]);
-		YK = zext(temp[4,4]);
-		ZK = zext(temp[0,4]);
-	<next2>
-	if (iopr8i[2,1] == 0) goto <next3>;
-		Pull2(IZ);
-	<next3>
-	if (iopr8i[3,1] == 0) goto <next4>;
-		Pull2(IY);
-	<next4>
-	if (iopr8i[4,1] == 0) goto <next5>;
-		Pull2(IX);
-	<next5>
-	if (iopr8i[5,1] == 0) goto <next6>;
-		Pull2(E);
-	<next6>
-	if (iopr8i[6,1] == 0) goto <next7>;
-		Pull2(D);
-	<next7>
+:PULM iopr8i				is Prebyte=0x0 & op8=0x35; iopr8i & PulCCR {
+	build PulCCR;
 }
+
+# PULM IMM8 ii
+#:PULM iopr8i				is Prebyte=0x0 & op8=0x35; iopr8i {
+#	if (iopr8i[0,1] == 0) goto <next1>;
+#		Pull2(CCR);
+#	<next1>
+#	if (iopr8i[1,1] == 0) goto <next2>;
+#		local temp:2;
+#		Pull2(temp);
+#		EK = zext(temp[12,4]);
+#		XK = zext(temp[8,4]);
+#		YK = zext(temp[4,4]);
+#		ZK = zext(temp[0,4]);
+#	<next2>
+#	if (iopr8i[2,1] == 0) goto <next3>;
+#		Pull2(IZ);
+#	<next3>
+#	if (iopr8i[3,1] == 0) goto <next4>;
+#		Pull2(IY);
+#	<next4>
+#	if (iopr8i[4,1] == 0) goto <next5>;
+#	<next5>
+#	if (iopr8i[5,1] == 0) goto <next6>;
+#		Pull2(E);
+#	<next6>
+#	if (iopr8i[6,1] == 0) goto <next7>;
+#		Pull2(D);
+#	<next7>
+#}
 
 # PULMAC
 :PULMAC					is Prebyte=0x27 & op8=0xB9 {

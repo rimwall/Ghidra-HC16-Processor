@@ -504,8 +504,8 @@
     <symbol name="TFBS3" address="0FF876"/>
   </default_symbols>
 	<default_memory_blocks>
-		<memory_block name="RAM" start_address="0x20000" length="0x8000" mode="rw"/>
-		<memory_block name="IMB" start_address="0xF0000" length="0x10000" mode="rw"/>
+		<memory_block name="RAM" start_address="0x20000" length="0x8000" mode="rw" initialized="false"/>
+		<memory_block name="IMB" start_address="0xF0000" length="0x10000" mode="rw" initialized="false"/>
 	</default_memory_blocks>
 
 
