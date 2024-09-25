@@ -3,6 +3,15 @@
 <processor_spec>
   <programcounter register="PKPC"/>
 
+  <context_data>
+	<tracked_set space="RAM">
+		<set name="EK" val="2"/>
+		<set name="XK" val="2"/>
+		<set name="YK" val="0xf"/> 
+		<set name="ZK" val="2"/>
+	</tracked_set>
+  </context_data>      
+
   <default_symbols> <!-- names not updated, no functionality -->
 	<symbol name="RESET_initial_ZK_SK_PK" address="00000" entry="true" type="code_ptr"/>
 	<symbol name="RESET_initial_PC" address="00002" entry="true" type="code_ptr"/>

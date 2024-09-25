@@ -18,21 +18,15 @@
 
   <global>
     <range space="RAM"/>
-  </global>
-  
-  <context_data>
-	<tracked_set space="RAM">
-		<set name="EK" val="2"/>
-		<set name="XK" val="2"/>
-		<set name="YK" val="0xf"/> 
-		<set name="ZK" val="2"/>
-	</tracked_set>
-  </context_data>    
+  </global>  
   
   <stackpointer register="SKSP" space="RAM" growth="negative"/>
+  <returnaddress>
+    <varnode space="stack" offset="4" size="2"/>
+  </returnaddress>
   
   <default_proto>
-      <prototype name="__asmA" extrapop="2" stackshift="2" strategy="register">
+      <prototype name="__asmA" extrapop="4" stackshift="4" strategy="register">
       <input>
         <pentry minsize="1" maxsize="1">
           <register name="A"/>
@@ -56,7 +50,7 @@
           <register name="IZ"/>
         </pentry>
         <pentry minsize="1" maxsize="500" align="2">
-          <addr offset="2" space="stack"/>
+          <addr offset="6" space="stack"/>
         </pentry>
       </input>
       <output>
@@ -66,6 +60,10 @@
       </output>
       <unaffected>
         <register name="SKSP"/>
+        <register name="EK"/>
+        <register name="XK"/>
+        <register name="YK"/>
+        <register name="ZK"/>
       </unaffected>
     </prototype>
   </default_proto>
